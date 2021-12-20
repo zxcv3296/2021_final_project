@@ -2,6 +2,11 @@
 우선 Perceptron 보다 LogisticRegression이 Accuracy가 높게 나오기 때문에 LogisticRegression을 활용하였다.
 이후 LogisticRegression의 하이퍼 파라미터를 수정하며 나온 Accuracy를 기록하였다.
 
+log_reg = sklearn.linear_model.LogisticRegression()로 한다음 괄호 안에 하이퍼 파라미터를 조정하는식으로 하였다.
+log_reg.fit(X_train, y_train)로 데이터셋을 training시켰다.
+
+아래는 하이퍼 파라미터를 조정한 방법, 경우의 수이다.
+
 random_state = 0으로 고정시킨다.
 
 C 조정
@@ -298,3 +303,11 @@ n_jobs = 1이거나 None 일때 가장 높았으므로 기본값인 None로 지�
 
 이로써 모든 하이퍼파라미터를 수정해보며 가장 높은 Accuracy는 98.333%, 즉 0.983333이 도출되었다.\
 소수점 둘째자리까지 반영하므로 0.98이 도출된다.
+
+최종적으로 도출된 코드는 아래와 같다.
+log_reg = sklearn.linear_model.LogisticRegression(
+C=100.0,
+random_state=0,
+max_iter=380,)
+log_reg.fit(X_train, y_train)
+y_pred = log_reg.predict(X_test)
