@@ -308,6 +308,6 @@ n_jobs = 1이거나 None 일때 가장 높았으므로 기본값인 None로 지�
 log_reg = sklearn.linear_model.LogisticRegression(
 C=100.0,
 random_state=0,
-max_iter=380,)
-log_reg.fit(X_train, y_train)
+max_iter=380,)\n
+log_reg.fit(X_train, y_train)\n
 y_pred = log_reg.predict(X_test)
